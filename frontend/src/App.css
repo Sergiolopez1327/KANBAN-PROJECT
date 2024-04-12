@@ -34,3 +34,15 @@
   font-size: 14px;
   color: #ffffff; /* Change text color to white for visibility against black background */
 }
+
+.task{
+  background-color: #ffffff;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.task:hover{
+  background-color: #f0f0f0;
+}
