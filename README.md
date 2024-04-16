@@ -24,7 +24,7 @@ For the first week meeting, we get to know about each other as well as the proje
 
 The website will follow the basic process of a task management application. Users will have the ability to create tasks, as well as modify and delete the task of their work along the process. Each action will be update and store in the online ope scorce database.
 
-![flowcahrt](<../../Blank diagram - Page 1.png>)
+![flowchart](flowchart.png)
 
 
 ### Change after discussion
