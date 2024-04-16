@@ -26,13 +26,13 @@ function App() {
       })
       .catch(error => {
         console.error('Error:', error);
+        setLoading(false);
       });
   }, []);
 
-
   if (loading) {
     return <div>Loading...<h1>here comes an animation</h1></div>;
-  }
+  } 
 
   const updateBackend = () => {
     fetch('http://localhost:8080/update_tasks', {
@@ -62,6 +62,7 @@ function App() {
     setEditing(null);
   };
 
+
   const handleDelete = (index, status) => {
     setTasks(prevTasks => {
       const newTasks = { ...prevTasks };
@@ -75,6 +76,13 @@ function App() {
     setSelectedTask({ task, index, status });
     setShowModal(true);
   };
+
+  function handleAddTask() {
+    setTasks(prevTasks => ({
+      ...prevTasks,
+      todo: [...prevTasks.todo, 'New task']
+    }));
+  }
   
 
   return (
@@ -139,6 +147,7 @@ function App() {
               </div>
             ))}
           </div>
+          <button id="add-task-button" onClick={handleAddTask}>Add Task</button>
     </div>
   );
 }
