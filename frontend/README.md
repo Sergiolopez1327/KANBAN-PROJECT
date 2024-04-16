@@ -2,12 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Group project flow-chart
-
-The website will follow the basic process of a task management application. Users will have the ability to create tasks, as well as modify and delete the task of their work along the process. Each action will be update and store in the online ope scorce database.
-
-![alt text](<../../../Blank diagram - Page 1.png>)
-
 ## Available Scripts
 
 In the project directory, you can run:
