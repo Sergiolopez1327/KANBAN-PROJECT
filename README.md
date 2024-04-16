@@ -26,5 +26,12 @@ The website will follow the basic process of a task management application. User
 
 ![flowchart](flowchart.png)
 
+### Scrum update @ 23th Feb
+## Change after discussion
+The second week start with a small change in the position and roll of each member. Sergio will be the main person in coding and holding the github respository. Quang still responsible for drawing the flowchart diagram, thus, helping with maintain the github scrum and support Sergio of gathering coding example for the project (both from the class and online open sources). 
+From this week on till the 12th April, the project mainly around coming up  with the code prototype, building up the back-end and front-end structure for the application, and trying to connect the app with Mongo database. 
+We are following the 4 weeks update duration, plus an extra week of midterm exam, and a spring break in the first week of April. 
+Anthony and Elton will support Sergio to complete the coding section.
 
-### Change after discussion
+### Scrum update @ 12 April
+This week we have already obtain most of the fundamental element of the application. However, the project's code are currently facing challenges connection with Mongo through docker, which is a crucial point to manage the task and action of the user. The team also having some man-power issue as Elton has been hositalized for his lung's diagnostic.
