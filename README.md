@@ -36,12 +36,12 @@ Since there will be and extra week for the Mid-term exam and spring break week. 
 This week the group has acomplished coming up with the basic structure of the entire project.
 ### Summary Achivement and Identify challenges 
 Current achievement:
-    - Back-end design: 80% (create, update, delete tasks)
-    - Front-end design: 60% (adding effect to buttons for interact attraction)
+     Back-end design: 80% (create, update, delete tasks)
+     Front-end design: 60% (adding effect to buttons for interact attraction)
 Challenges:
-    - Connecting with Mongo through docker
-    - Organize font-end elements
-    - Missing report document
+     Connecting with Mongo through docker
+     Organize font-end elements
+     Missing report document
 
 The group also having problem with men power as one of the group member got hospitalized for couple weeks due to lung's issue.
 The last week will mainly focus on connecting the app with Mongo database and warpping up the front-end. Also we will running the demo test, record and upload the process to Youtube.
