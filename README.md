@@ -24,6 +24,33 @@ The website will follow the basic process of a task management application. User
 
 ![flowchart](flowchart.png)
 
+
+## Use these steps to run the application
+
+- Download node from here (required for your frontend)[node](https://nodejs.org/en/download)
+- Use [visual studio code](https://code.visualstudio.com/)
+- Mongo Compass from [here](https://www.mongodb.com/try/download/compass)
+- Install [docker](https://www.docker.com/products/docker-desktop/)
+
+1. Run Frontend
+   - open terminal in your project folder
+   - `cd frontend`
+   - `npm start`
+   Your frontend is now running on [localhost:3000](http://localhost:3000)
+
+2. Run Backend
+   - open terminal in your project folder
+   - `cd backend`
+   - `pip install -r requirements.txt`
+     > `pip3 install -r requirements.txt` for mac users
+   - `python api.py`
+     > `python3 install -r requirements.txt` for mac users
+   - Your api is now ready at [localhost:8080](http://localhost:8080)
+
+3. Run Database
+   - Make sure Docker Desktop is started and minimised. Then on your terminal
+     `docker-compose up`
+
 ## Scrum update @ 23th February
 ### Position update after discussion 
 For the second week of the project, after the in-class discussion, there is a big change in member position and roll. Sergio will now taking the main roll in building the code since he has build the github's reository, as well as come up with the basic structure of the application back-end code. Anthony and Elton will support Sergio with the front-end of the application and the report document. Quang will now share the roll of updating the scrum, support in gathering sample code (both in class and from online open sorce) for the project, and doing the presentation. 
