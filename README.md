@@ -16,15 +16,6 @@
 - [DONE]
 - [DROPPED]
 
-## Scrum update @ 16th February
-For the first week meeting, we get to know about each other as well as the project concept and requirements. During the meeting, we decided that I (Sergio) will be the scrum master, Quang will help on creating the flow chart diagram, while Anthony and Elton will work on creating the GitHub repository. Next step, we planning on coming up with the basic framework of the software and begin looking at similar projects on GitHub. 
-
-### Software Requirement Specifications
-The website will follow the basic process of a task management application. Users will have the ability to create tasks, as well as modify and delete the task of their work along the process. Each action will be update and store in the online ope scorce database.
-
-![flowchart](flowchart.png)
-
-
 ## Use these steps to run the application
 
 - Download node from here (required for your frontend)[node](https://nodejs.org/en/download)
@@ -50,6 +41,15 @@ The website will follow the basic process of a task management application. User
 3. Run Database
    - Make sure Docker Desktop is started and minimised. Then on your terminal
      `docker-compose up`
+
+### Software Requirement Specifications
+
+The website will follow the basic process of a task management application. Users will have the ability to create tasks, as well as modify and delete the task of their work along the process. Each action will be update and store in the online ope scorce database.
+
+![flowchart](flowchart.png)
+
+## Scrum update @ 16th February
+For the first week meeting, we get to know about each other as well as the project concept and requirements. During the meeting, we decided that I (Sergio) will be the scrum master, Quang will help on creating the flow chart diagram, while Anthony and Elton will work on creating the GitHub repository. Next step, we planning on coming up with the basic framework of the software and begin looking at similar projects on GitHub.
 
 ## Scrum update @ 23th February
 ### Position update after discussion 
