@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app) 
-app.config["MONGO_URI"] = "mongodb://root:root@localhost:27017"
+app.config["MONGO_URI"] = "mongodb://root:root@localhost:27017/test"
 
 mongo = PyMongo(app)
 
@@ -37,11 +37,13 @@ def get_todo():
 def update_tasks():
     try:
         data = request.get_json()
-        mongo.db.test.delete_many({})
-        mongo.db.test.insert_one(data)
+
+        # Update the existing document with the new data
+        mongo.db.test.update_one({}, {'$set': data})
+
         return {200: 'Success'}
     except Exception as e:
-        return {500: str(e)}
+        return {500: 'An error occurred'}
 
 
 if __name__ == '__main__':

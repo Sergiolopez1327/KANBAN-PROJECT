@@ -17,18 +17,21 @@ function App() {
   const [selectedTask, setSelectedTask] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/get_tasks')
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data[0]);
-        setTasks(data[0]);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false);
-      });
-  }, []);
+    setLoading(false);
+    // Send the updated tasks to the backend
+    fetch('http://localhost:8080/update_tasks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(tasks),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }, [tasks]);
 
   if (loading) {
     return <div>Loading...<h1>here comes an animation</h1></div>;
@@ -56,12 +59,30 @@ function App() {
         const newTasks = { ...prevTasks };
         newTasks[status][index] = newTask;
         return newTasks;
-      });
-      updateBackend();
+      }, updateBackend);  // Call updateBackend after state has been updated
     }
-    setEditing(null);
   };
 
+  const handleMoveTask = (task, from, to) => {
+    setTasks(prevTasks => {
+      // Check that the states exist in the tasks object
+      if (!prevTasks[from] || !prevTasks[to]) {
+        return prevTasks;
+      }
+  
+      // Remove the task from the current state
+      const fromTasks = [...prevTasks[from]];
+      const taskIndex = fromTasks.indexOf(task);
+      if (taskIndex > -1) {
+        fromTasks.splice(taskIndex, 1);
+      }
+  
+      // Add the task to the new state
+      const toTasks = [...prevTasks[to], task];
+  
+      return { ...prevTasks, [from]: fromTasks, [to]: toTasks };
+    });
+  };
 
   const handleDelete = (index, status) => {
     setTasks(prevTasks => {
@@ -77,13 +98,12 @@ function App() {
     setShowModal(true);
   };
 
-  function handleAddTask() {
+  const handleAddTask = () => {
     setTasks(prevTasks => ({
       ...prevTasks,
       todo: [...prevTasks.todo, 'New task']
     }));
-  }
-  
+  };
 
   return (
     <div className="kanban-board">
@@ -92,12 +112,28 @@ function App() {
           closeOnDocumentClick
           onClose={() => setShowModal(false)}
         >
-          <div>
-            <h2>Do you want to edit or delete this task?</h2>
+          <div> 
+            <h2>Do you want to edit, delete or move this task?</h2>
             <button onClick={() => { setEditing(selectedTask); setShowModal(false); }}>Edit</button>
             <button onClick={() => { handleDelete(selectedTask.index, selectedTask.status); setShowModal(false); }}>Delete</button>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
-          </div>
+            {selectedTask && selectedTask.status === 'todo' && <button onClick={() => { handleMoveTask(selectedTask.task, selectedTask.status, 'doing'); setShowModal(false); }}>Move to Doing</button>}
+            {selectedTask && selectedTask.status === 'doing' && (
+             <>
+               <button onClick={() => { handleMoveTask(selectedTask.task, selectedTask.status, 'todo'); setShowModal(false); }}>Move to Todo</button>
+               <button onClick={() => { handleMoveTask(selectedTask.task, selectedTask.status, 'done'); setShowModal(false); }}>Move to Done</button>
+             </>
+            )}
+            {selectedTask && selectedTask.status === 'done' && (
+              <>
+                <button onClick={() => { handleMoveTask(selectedTask.task, selectedTask.status, 'doing'); setShowModal(false); }}>Move to Doing</button>
+                <button onClick={() => { handleMoveTask(selectedTask.task, selectedTask.status, 'dropped'); setShowModal(false); }}>Move to Dropped</button>
+              </>
+              )}
+              {selectedTask && selectedTask.status === 'dropped' && (
+                <button onClick={() => { handleMoveTask(selectedTask.task, selectedTask.status, 'done'); setShowModal(false); }}>Move to Done</button>
+              )}
+              <button onClick={() => setShowModal(false)}>Cancel</button>
+            </div>
         </Popup>
       <div className="kanban-column">
             <h2>Todo</h2>
