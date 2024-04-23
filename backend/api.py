@@ -23,7 +23,7 @@ else:
 
 @app.route('/')
 def hello():
-    return 'Hello from api!'
+    return 'Hello there'
 
 @app.route('/get_tasks', methods=['GET'])
 def get_todo():
