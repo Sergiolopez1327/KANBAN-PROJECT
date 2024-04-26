@@ -25,12 +25,14 @@
 
 1. Run Frontend
    - open terminal in your project folder
+   - `cd first_app`
    - `cd frontend`
    - `npm start`
    Your frontend is now running on [localhost:3000](http://localhost:3000)
 
 2. Run Backend
    - open terminal in your project folder
+   - `cd first_app`
    - `cd backend`
    - `pip install -r requirements.txt`
      > `pip3 install -r requirements.txt` for mac users
